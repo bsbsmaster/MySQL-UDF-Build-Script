@@ -1,26 +1,5 @@
 #!/bin/bash
 
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-# Copyright Karim Kanso, 2020. All rights reserved. Licenced under GPLv3
-
-
-
-# The code here is derived from:
-# https://github.com/sqlmapproject/udfhack. However, it simplies the
-# build and removes the need for MySQL development files to be
-# installed.
 
 if test "$#" -ne 3 -o \
         \( "$1" != "32" -a "$1" != "64" \) \
@@ -55,27 +34,6 @@ set -e
 
 echo "[*] building ${NAME}${EXT}"
 ${GCC} ${CFLAGS} -x c - -o ${NAME}${EXT} <<EOF
-/*
-  lib_mysqludf_sys - a library with miscellaneous (operating) system level functions
-  Copyright (C) 2007  Roland Bouman
-  Copyright (C) 2008-2010  Roland Bouman and Bernardo Damele A. G.
-  web: http://www.mysqludf.org/
-  email: mysqludfs@gmail.com, bernardo.damele@gmail.com
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-*/
 
 
 #if defined(_WIN32) || defined(_WIN64) || defined(__WIN32__) || defined(WIN32)
